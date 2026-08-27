@@ -82,7 +82,7 @@ python evaluation/metrics.py \
 
 ## Pretrained checkpoint
 
-CHECKPOINT_DOWNLOAD_URL_TO_BE_ADDED
+[Download the pretrained checkpoint](https://drive.google.com/file/d/1FAuVQjvqwGI6r9oGWeFFPFaAVqQS2ktM/view?usp=sharing)
 
 The pretrained checkpoint can be downloaded from the link above and placed at:
 `checkpoints/magicmri_ckpt_release.pth`
