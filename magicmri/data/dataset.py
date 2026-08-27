@@ -142,9 +142,9 @@ class VisualPairDataset(Dataset):
 
     def __getitem__(self, index: int):
         primary = self.records[index]
-        exemplar_index = random.choice(self.by_type[primary["type"]])
+        query_index = random.choice(self.by_type[primary["type"]])
         source_top, target_top = self._pair(primary)
-        source_bottom, target_bottom = self._pair(self.records[exemplar_index])
+        source_bottom, target_bottom = self._pair(self.records[query_index])
         source = torch.cat((source_top, source_bottom), dim=1)
         target = torch.cat((target_top, target_bottom), dim=1)
         valid = torch.ones_like(target)

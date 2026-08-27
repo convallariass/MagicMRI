@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT))
 
 from magicmri.models.magicmri import MagicMRI  # noqa: E402
 from magicmri.data.dataset import VisualPairDataset  # noqa: E402
+from magicmri.utils.visual_prompt import construct_visual_prompt  # noqa: E402
 
 
 class ReleaseSmokeTests(unittest.TestCase):
@@ -81,6 +82,21 @@ class ReleaseSmokeTests(unittest.TestCase):
         self.assertEqual(tuple(mask.shape), (4, 2))
         self.assertEqual(int(mask.sum()), 4)
         self.assertEqual(tuple(valid.shape), (3, 64, 32))
+
+    def test_visual_prompt_canvas_and_query_mask(self):
+        example = ROOT / "examples" / "translation" / "T01"
+        source, target, mask = construct_visual_prompt(
+            example / "exemplar_source.png",
+            example / "exemplar_target.png",
+            example / "query_source.png",
+            size=448,
+            device=torch.device("cpu"),
+        )
+        self.assertEqual(tuple(source.shape), (1, 3, 896, 448))
+        self.assertEqual(tuple(target.shape), (1, 3, 896, 448))
+        self.assertEqual(tuple(mask.shape), (1, 1568))
+        self.assertEqual(int(mask[:, :784].sum()), 0)
+        self.assertEqual(int(mask[:, 784:].sum()), 784)
 
 
 if __name__ == "__main__":

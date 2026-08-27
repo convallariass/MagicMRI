@@ -217,9 +217,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-##########################
-
-
 def drop_path(x, drop_prob=0.0, training=False):
     if drop_prob == 0.0 or not training:
         return x
@@ -254,8 +251,6 @@ class Mlp(nn.Module):
 
 
 trunc_normal_ = torch.nn.init.trunc_normal_
-
-# vitdet helpers are embedded above in this reviewer extraction.
 
 
 class Attention(nn.Module):
@@ -422,7 +417,6 @@ class MagicMRI(nn.Module):
              ):
         super().__init__()
 
-        # --------------------------------------------------------------------------
         self.pretrain_use_cls_token = pretrain_use_cls_token
         self.patch_size = patch_size
         self.patch_embed = PatchEmbed(
@@ -465,7 +459,7 @@ class MagicMRI(nn.Module):
                 input_size=(img_size[0] // patch_size, img_size[1] // patch_size),
             )
             if use_act_checkpoint:
-                raise RuntimeError("Activation-checkpoint training variants are not included in this inference runtime")
+                raise RuntimeError("Activation checkpointing is not enabled in this release")
             self.blocks.append(block)
 
         self._out_feature_channels = {out_feature: embed_dim}
@@ -476,9 +470,6 @@ class MagicMRI(nn.Module):
             trunc_normal_(self.pos_embed, std=0.02)
         self.norm = norm_layer(embed_dim)
 
-        # --------------------------------------------------------------------------
-
-        # --------------------------------------------------------------------------
         self.decoder_embed_dim = decoder_embed_dim
         self.decoder_embed = nn.Linear(embed_dim*4, patch_size ** 2 * self.decoder_embed_dim, bias=True)
         self.decoder_pred = nn.Sequential(
@@ -487,7 +478,6 @@ class MagicMRI(nn.Module):
                 nn.GELU(),
                 nn.Conv2d(self.decoder_embed_dim, 3, kernel_size=1, bias=True),
         )
-        # --------------------------------------------------------------------------
         self.loss_func = loss_func
         torch.nn.init.normal_(self.mask_token, std=.02)
         torch.nn.init.normal_(self.segment_token_x, std=.02)

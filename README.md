@@ -24,6 +24,8 @@ python scripts/prepare_data.py \
 
 Use `--target-is-mask` for segmentation targets or `--source-degradation` for restoration tasks. A training manifest is a JSON list with `image_path`, `target_path`, and `type` fields. Paths are resolved relative to the configured data root.
 
+The degradation options create training pairs from user-owned data; evaluation consumes saved predictions and targets and does not generate degradations.
+
 ## Training
 
 Set the data paths in `configs/train.yaml`, then run:
@@ -41,7 +43,7 @@ Each inference call consumes an exemplar source, an exemplar target, and a query
 ```bash
 python scripts/inference.py \
   --example /path/to/example \
-  --checkpoint checkpoints/magicmri.pth
+  --checkpoint checkpoints/magicmri_ckpt_release.pth
 ```
 
 The example directory must contain `config.yaml` and the three images referenced by that file.
@@ -52,13 +54,13 @@ The repository includes 18 deterministic synthetic examples: 6 modality-translat
 
 ```bash
 # Translation
-python scripts/inference.py --family translation --checkpoint checkpoints/magicmri.pth
+python scripts/inference.py --family translation --checkpoint checkpoints/magicmri_ckpt_release.pth
 
 # Enhancement/restoration
-python scripts/inference.py --family enhancement --checkpoint checkpoints/magicmri.pth
+python scripts/inference.py --family enhancement --checkpoint checkpoints/magicmri_ckpt_release.pth
 
 # Tumor segmentation
-python scripts/inference.py --family segmentation --checkpoint checkpoints/magicmri.pth
+python scripts/inference.py --family segmentation --checkpoint checkpoints/magicmri_ckpt_release.pth
 ```
 
 Validate all example files without a checkpoint using:
@@ -83,7 +85,7 @@ python evaluation/metrics.py \
 CHECKPOINT_DOWNLOAD_URL_TO_BE_ADDED
 
 The pretrained checkpoint can be downloaded from the link above and placed at:
-`checkpoints/magicmri.pth`
+`checkpoints/magicmri_ckpt_release.pth`
 
 The `checkpoints/` directory is ignored by Git.
 

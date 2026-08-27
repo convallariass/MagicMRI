@@ -44,7 +44,7 @@ class MaskingGenerator:
                 left = random.randint(0, self.width - w)
 
                 num_masked = mask[top: top + h, left: left + w].sum()
-                # Overlap
+                # Add only previously unmasked patches from this block.
                 if 0 < h * w - num_masked <= max_mask_patches:
                     for i in range(top, top + h):
                         for j in range(left, left + w):
@@ -69,7 +69,7 @@ class MaskingGenerator:
             else:
                 mask_count += delta
 
-        # maintain a fix number {self.num_masking_patches}
+        # Enforce the configured patch count after block sampling.
         if mask_count > self.num_masking_patches:
             delta = mask_count - self.num_masking_patches
             mask_x, mask_y = mask.nonzero()

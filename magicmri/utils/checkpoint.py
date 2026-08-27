@@ -14,7 +14,7 @@ def load_checkpoint(path: PathLike) -> Dict[str, torch.Tensor]:
     if not checkpoint_path.is_file():
         raise FileNotFoundError(
             f"Checkpoint not found: {checkpoint_path}. Download it and place it at "
-            "checkpoints/magicmri.pth."
+            "checkpoints/magicmri_ckpt_release.pth."
         )
     checkpoint: Any = torch.load(str(checkpoint_path), map_location="cpu")
     if isinstance(checkpoint, dict) and "model" in checkpoint:

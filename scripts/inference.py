@@ -30,7 +30,7 @@ def parse_args():
     selection.add_argument("--all-examples", action="store_true", help="Run all 18 examples")
     parser.add_argument("--config", default="configs/inference.yaml")
     parser.add_argument("--examples-root", default="examples")
-    parser.add_argument("--checkpoint", default="checkpoints/magicmri.pth")
+    parser.add_argument("--checkpoint", default="checkpoints/magicmri_ckpt_release.pth")
     parser.add_argument("--output-dir", default="outputs")
     parser.add_argument("--device")
     parser.add_argument(
