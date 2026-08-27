@@ -1,0 +1,7 @@
+example_id: T02
+family: translation
+task: modality_translation-t1nTOt2f
+exemplar_source: exemplar_source.png
+exemplar_target: exemplar_target.png
+query_source: query_source.png
+synthetic: true

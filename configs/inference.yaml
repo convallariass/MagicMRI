@@ -1,0 +1,3 @@
+device: cuda
+input_size: 448
+segmentation_threshold: 128

@@ -1,0 +1,28 @@
+seed: 0
+
+data:
+  root: /path/to/dataset
+  train_manifests:
+    - /path/to/train_manifest.json
+  val_manifests:
+    - /path/to/val_manifest.json
+  image_size: 448
+  min_random_scale: 0.3
+  half_mask_ratio: 0.1
+  num_mask_patches: 784
+  max_mask_patches_per_block: 392
+
+training:
+  device: cuda
+  epochs: 15
+  batch_size: 4
+  accumulation_steps: 16
+  learning_rate: 0.001
+  min_learning_rate: 0.0
+  warmup_epochs: 1
+  weight_decay: 0.1
+  layer_decay: 0.8
+  clip_grad: 3.0
+  num_workers: 4
+  amp: true
+  output_dir: outputs/train

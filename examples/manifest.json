@@ -1,0 +1,110 @@
+[
+  {
+    "example_id": "T01",
+    "family": "translation",
+    "task": "modality_translation-t1cTOt1n",
+    "directory": "translation/T01"
+  },
+  {
+    "example_id": "T02",
+    "family": "translation",
+    "task": "modality_translation-t1nTOt2f",
+    "directory": "translation/T02"
+  },
+  {
+    "example_id": "T03",
+    "family": "translation",
+    "task": "modality_translation-t2fTOt2w",
+    "directory": "translation/T03"
+  },
+  {
+    "example_id": "T04",
+    "family": "translation",
+    "task": "modality_translation-t2wTOt1c",
+    "directory": "translation/T04"
+  },
+  {
+    "example_id": "T05",
+    "family": "translation",
+    "task": "modality_translation-t1cTOt2w",
+    "directory": "translation/T05"
+  },
+  {
+    "example_id": "T06",
+    "family": "translation",
+    "task": "modality_translation-t2fTOt1n",
+    "directory": "translation/T06"
+  },
+  {
+    "example_id": "E01",
+    "family": "enhancement",
+    "task": "image_enhancement-t1c_deblurx2",
+    "directory": "enhancement/E01"
+  },
+  {
+    "example_id": "E02",
+    "family": "enhancement",
+    "task": "image_enhancement-t1n_degaussian",
+    "directory": "enhancement/E02"
+  },
+  {
+    "example_id": "E03",
+    "family": "enhancement",
+    "task": "image_enhancement-t2f_desaltpepper",
+    "directory": "enhancement/E03"
+  },
+  {
+    "example_id": "E04",
+    "family": "enhancement",
+    "task": "image_enhancement-t2w_deblurx2",
+    "directory": "enhancement/E04"
+  },
+  {
+    "example_id": "E05",
+    "family": "enhancement",
+    "task": "image_enhancement-t1c_degaussian",
+    "directory": "enhancement/E05"
+  },
+  {
+    "example_id": "E06",
+    "family": "enhancement",
+    "task": "image_enhancement-t2w_desaltpepper",
+    "directory": "enhancement/E06"
+  },
+  {
+    "example_id": "S01",
+    "family": "segmentation",
+    "task": "tumor_segmentation-t1c_Glioma",
+    "directory": "segmentation/S01"
+  },
+  {
+    "example_id": "S02",
+    "family": "segmentation",
+    "task": "tumor_segmentation-t2f_Glioma",
+    "directory": "segmentation/S02"
+  },
+  {
+    "example_id": "S03",
+    "family": "segmentation",
+    "task": "tumor_segmentation-t1n_Meningioma",
+    "directory": "segmentation/S03"
+  },
+  {
+    "example_id": "S04",
+    "family": "segmentation",
+    "task": "tumor_segmentation-t2w_Meningioma",
+    "directory": "segmentation/S04"
+  },
+  {
+    "example_id": "S05",
+    "family": "segmentation",
+    "task": "tumor_segmentation-t1c_Metastasis",
+    "directory": "segmentation/S05"
+  },
+  {
+    "example_id": "S06",
+    "family": "segmentation",
+    "task": "tumor_segmentation-t2f_Metastasis",
+    "directory": "segmentation/S06"
+  }
+]

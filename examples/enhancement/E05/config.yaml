@@ -1,0 +1,7 @@
+example_id: E05
+family: enhancement
+task: image_enhancement-t1c_degaussian
+exemplar_source: exemplar_source.png
+exemplar_target: exemplar_target.png
+query_source: query_source.png
+synthetic: true
