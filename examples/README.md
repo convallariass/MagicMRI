@@ -1,3 +1,7 @@
-# Synthetic visual-prompt examples
+# Synthetic smoke-test fixtures
 
-These deterministic fixtures contain no clinical data. Each directory provides an exemplar source, an exemplar target, a query source, and a task configuration. The 18 task definitions match the fixed T01–T06, E01–E06, and S01–S06 interface used by the prior runnable inference package.
+The repository contains 18 deterministic software fixtures: six translation, six enhancement/restoration, and six segmentation cases. Each directory provides an exemplar source, an exemplar target, a query source, and task metadata. The exemplar source-target relationship defines the requested operation; the query source is the input on which that operation is requested.
+
+These synthetic fixtures are provided only for software smoke testing and are not samples from the study cohorts and are not used to reproduce paper-level quantitative results.
+
+They test package imports, checkpoint loading, prompt construction, each inference-family path, output shape/non-emptiness, and binary segmentation rendering. They are not representative MRI examples, modality-faithful examples, clinically meaningful examples, or paper evidence.

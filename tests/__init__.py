@@ -1,0 +1,1 @@
+"""MagicMRI release tests."""

@@ -1,0 +1,1 @@
+{"sample_id":"local-sample-001","task_id":"modality_translation-t1nTOt1c","patient_id":"local-patient-001","slice_id":"slice-001","slice_index":1,"exemplar_source":"local-patient-001/t1n/exemplar.png","exemplar_target":"local-patient-001/t1c/exemplar.png","query_source":"local-patient-001/t1n/query.png","query_target":"local-patient-001/t1c/target.png"}
