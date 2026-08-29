@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from magicmri.inference import infer  # noqa: E402
+from magicmri.infer import resolve_device  # noqa: E402
 from magicmri.utils.checkpoint import load_pretrained_model  # noqa: E402
 from magicmri.utils.visual_prompt import resolve_example_inputs  # noqa: E402
 
@@ -32,7 +33,7 @@ def parse_args():
     parser.add_argument("--examples-root", default="examples")
     parser.add_argument("--checkpoint", default="checkpoints/magicmri_ckpt_release.pth")
     parser.add_argument("--output-dir", default="outputs")
-    parser.add_argument("--device")
+    parser.add_argument("--device", choices=("auto", "cpu", "cuda"))
     parser.add_argument(
         "--validate-only",
         action="store_true",
@@ -81,9 +82,7 @@ def main():
         print(f"Validated {len(examples)} visual-prompt example(s)")
         return
 
-    device = torch.device(args.device or runtime["device"])
-    if device.type == "cuda" and not torch.cuda.is_available():
-        raise RuntimeError("CUDA was requested but is not available")
+    device = resolve_device(args.device or runtime["device"])
     model = load_pretrained_model(args.checkpoint, device)
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
